@@ -7,8 +7,16 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.notessecondtry.data.CardSource;
+import com.example.notessecondtry.data.CardsSourceImpl;
+import com.example.notessecondtry.fragment.NoteActivity;
+import com.example.notessecondtry.fragment.ShowNoteInside;
 import com.example.notessecondtry.ui.MyAdapter;
 
 public class MainActivity extends AppCompatActivity {
@@ -18,16 +26,24 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         RecyclerView recyclerView = findViewById(R.id.recycler_view_lines);
-        String[] strings = getResources().getStringArray(R.array.noteTitles);
-        MyAdapter myAdapter = new MyAdapter(strings);
+        CardSource data = new CardsSourceImpl(getResources()).init();
+        MyAdapter myAdapter = new MyAdapter(data);
         recyclerView.setAdapter(myAdapter);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        initView();
+        initView(recyclerView,data);
     }
-    private void initView() {
+    private void initView(RecyclerView recyclerView, CardSource data) {
         Toolbar toolbar = initToolbar();
         initDrawer(toolbar);
+        final MyAdapter adapter = new MyAdapter(data);
+        recyclerView.setAdapter(adapter);
+        adapter.SetOnItemClickListener(new MyAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                showPortCoatOfArms(position);
+            }
+        });
     }
     private void initDrawer(Toolbar toolbar) {
         final DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -42,5 +58,11 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         return toolbar;
+    }
+    private void showPortCoatOfArms(int index) {
+        Intent intent = new Intent();
+        intent.setClass(getApplicationContext(), NoteActivity.class);
+        intent.putExtra(ShowNoteInside.ARG_INDEX, index);
+        startActivity(intent);
     }
 }

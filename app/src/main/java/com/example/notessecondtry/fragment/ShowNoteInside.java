@@ -1,5 +1,5 @@
 package com.example.notessecondtry.fragment;
-
+// Написан список и внутрення часть заметок, осталось дописать обработку нажатия на элемент списка
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
