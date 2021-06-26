@@ -10,8 +10,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.notessecondtry.data.CardSource;
 import com.example.notessecondtry.data.CardsSourceImpl;
@@ -41,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         adapter.SetOnItemClickListener(new MyAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                showPortCoatOfArms(position);
+                showNoteInside(position);
             }
         });
     }
@@ -59,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         return toolbar;
     }
-    private void showPortCoatOfArms(int index) {
+    private void showNoteInside(int index) {
         Intent intent = new Intent();
         intent.setClass(getApplicationContext(), NoteActivity.class);
         intent.putExtra(ShowNoteInside.ARG_INDEX, index);
