@@ -4,7 +4,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -15,15 +14,26 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.notessecondtry.R;
 import com.example.notessecondtry.data.Notes;
 import com.example.notessecondtry.data.CardSource;
+import com.example.notessecondtry.data.OnRegisterMenu;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     private final static String TAG = "MyAdapter";
     private CardSource dataSource;
     private OnItemClickListener itemClickListener;
+    private final OnRegisterMenu fragment;
+    private int menuPosition;
 
-    public MyAdapter(CardSource strings) {
-        this.dataSource = strings;
+
+    public int getMenuPosition() {
+        return menuPosition;
     }
+
+
+    public MyAdapter(CardSource strings, OnRegisterMenu fragment) {
+        this.dataSource = strings;
+        this.fragment = fragment;
+    }
+
 
     @NonNull
     @Override
@@ -35,7 +45,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull  MyAdapter.MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MyAdapter.MyViewHolder holder, int position) {
         holder.setData(dataSource.getCardData(position));
         Log.d(TAG, "onBindViewHolder");
     }
@@ -44,14 +54,16 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     public int getItemCount() {
         return dataSource.size();
     }
-    public void SetOnItemClickListener(OnItemClickListener itemClickListener){
+
+    public void SetOnItemClickListener(OnItemClickListener itemClickListener) {
         this.itemClickListener = itemClickListener;
     }
+
     public interface OnItemClickListener {
-        void onItemClick(View view , int position);
+        void onItemClick(View view, int position);
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder{
+    public class MyViewHolder extends RecyclerView.ViewHolder {
         private ConstraintLayout constraintLayout;
         private TextView title;
         private TextView description;
@@ -69,7 +81,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
                 }
             });
         }
-        public void setData(Notes notes){
+
+        public void setData(Notes notes) {
             title.setText(notes.getTitle());
             description.setText(notes.getDescription());
             image.setImageResource(notes.getPicture());

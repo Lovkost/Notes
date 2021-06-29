@@ -5,6 +5,10 @@
     <string name="reference_nav">О приложении</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="update">Изменить</string>
+    <string name="delete">Удалить</string>
+    <string name="clear">Очистить</string>
+    <string name="add">Добавить</string>
     <string-array name="noteTitles">
         <item>1stNote</item>
         <item>2ndNote</item>
