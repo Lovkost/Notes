@@ -12,6 +12,18 @@
         <item>4thNote</item>
         <item>5thNote</item>
         <item>6thNote</item>
+        <item>6thNote</item>
+        <item>6thNote</item>
+        <item>6thNote</item>
+        <item>6thNote</item>
+        <item>6thNote</item>
+        <item>6thNote</item>
+        <item>6thNote</item>
+        <item>6thNote</item>
+        <item>6thNote</item>
+        <item>6thNote</item>
+        <item>6thNote</item>
+        <item>6thNote</item>
     </string-array>
     <string-array name="description">
         <item>Почему отечественный препарат произвели в Японии?</item>
@@ -19,6 +31,18 @@
         <item>Эффективен ли он против коронавируса?</item>
         <item>И что думают на этот счет другие страны. </item>
         <item>Что дает нам знание о геноме?</item>
+        <item>Можно ли сравнивать происходящее с гриппом?</item>
+        <item>Можно ли сравнивать происходящее с гриппом?</item>
+        <item>Можно ли сравнивать происходящее с гриппом?</item>
+        <item>Можно ли сравнивать происходящее с гриппом?</item>
+        <item>Можно ли сравнивать происходящее с гриппом?</item>
+        <item>Можно ли сравнивать происходящее с гриппом?</item>
+        <item>Можно ли сравнивать происходящее с гриппом?</item>
+        <item>Можно ли сравнивать происходящее с гриппом?</item>
+        <item>Можно ли сравнивать происходящее с гриппом?</item>
+        <item>Можно ли сравнивать происходящее с гриппом?</item>
+        <item>Можно ли сравнивать происходящее с гриппом?</item>
+        <item>Можно ли сравнивать происходящее с гриппом?</item>
         <item>Можно ли сравнивать происходящее с гриппом?</item>
     </string-array>
     <string-array name="data">
@@ -28,13 +52,41 @@
         <item>20.07.2007</item>
         <item>24.09.2011</item>
         <item>30.12.2020</item>
+        <item>30.12.2020</item>
+        <item>30.12.2020</item>
+        <item>30.12.2020</item>
+        <item>30.12.2020</item>
+        <item>30.12.2020</item>
+        <item>30.12.2020</item>
+        <item>30.12.2020</item>
+        <item>30.12.2020</item>
+        <item>30.12.2020</item>
+        <item>30.12.2020</item>
+        <item>30.12.2020</item>
+        <item>30.12.2020</item>
     </string-array>
     <array name="pictures">
         <item>@drawable/anubis32</item>
+        <item>@drawable/anubis32</item>
+        <item>@drawable/bull64</item>
         <item>@drawable/bull64</item>
         <item>@drawable/chili</item>
         <item>@drawable/german</item>
+        <item>@drawable/german</item>
+        <item>@drawable/german</item>
+        <item>@drawable/origami64</item>
         <item>@drawable/origami64</item>
         <item>@drawable/pyramids32</item>
+        <item>@drawable/pyramids32</item>
+        <item>@drawable/pyramids32</item>
+        <item>@drawable/pyramids32</item>
+        <item>@drawable/pyramids32</item>
+        <item>@drawable/pyramids32</item>
+        <item>@drawable/pyramids32</item>
+        <item>@drawable/pyramids32</item>
     </array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="add">Добавить</string>
+    <string name="clear">Очистить</string>
 </resources>

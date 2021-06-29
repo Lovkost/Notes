@@ -9,8 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CardsSourceImpl implements CardSource {
-    private List<Notes> dataSource;
-    private Resources resources;
+    private final List<Notes> dataSource;
+    private final Resources resources;
 
     public CardsSourceImpl(Resources resources) {
         dataSource = new ArrayList<>(7);
@@ -47,5 +47,24 @@ public class CardsSourceImpl implements CardSource {
 
     public int size(){
         return dataSource.size();
+    }
+    @Override
+    public void deleteCardData(int position) {
+        dataSource.remove(position);
+    }
+
+    @Override
+    public void updateCardData(int position, Notes cardData) {
+        dataSource.set(position, cardData);
+    }
+
+    @Override
+    public void addCardData(Notes cardData) {
+        dataSource.add(cardData);
+    }
+
+    @Override
+    public void clearCardData() {
+        dataSource.clear();
     }
 }
