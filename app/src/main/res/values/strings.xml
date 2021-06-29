@@ -5,13 +5,17 @@
     <string name="reference_nav">О приложении</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="update">Изменить</string>
+    <string name="delete">Удалить</string>
+    <string name="clear">Очистить</string>
+    <string name="add">Добавить</string>
     <string-array name="noteTitles">
-        <item>How</item>
-        <item>Are</item>
-        <item>You</item>
-        <item>Think</item>
-        <item>About</item>
-        <item>Cov</item>
+        <item>1stNote</item>
+        <item>2ndNote</item>
+        <item>3rdNote</item>
+        <item>4thNote</item>
+        <item>5thNote</item>
+        <item>6thNote</item>
     </string-array>
     <string-array name="description">
         <item>Почему отечественный препарат произвели в Японии?</item>
@@ -29,5 +33,12 @@
         <item>24.09.2011</item>
         <item>30.12.2020</item>
     </string-array>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <array name="pictures">
+        <item>@drawable/anubis32</item>
+        <item>@drawable/bull64</item>
+        <item>@drawable/chili</item>
+        <item>@drawable/german</item>
+        <item>@drawable/origami64</item>
+        <item>@drawable/pyramids32</item>
+    </array>
 </resources>

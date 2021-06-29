@@ -1,5 +1,4 @@
 package com.example.notessecondtry.fragment;
-
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
