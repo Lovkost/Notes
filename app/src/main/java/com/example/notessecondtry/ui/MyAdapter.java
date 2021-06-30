@@ -99,9 +99,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         }
 
         public void setData(Notes notes) {
-            float count = description.getTextSize();
+            Integer count = notes.getDescription().length();
             title.setText(notes.getTitle());
-            description.setText(notes.getDescription());
+            if (count > 11) description.setText(notes.getDescription().substring(0, 11));
+            else description.setText(notes.getDescription());
             image.setImageResource(notes.getPicture());
         }
 
