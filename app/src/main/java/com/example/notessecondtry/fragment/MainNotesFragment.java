@@ -126,14 +126,18 @@ public class MainNotesFragment extends Fragment {
 
     @Override
     public boolean onContextItemSelected(@NonNull MenuItem item) {
+        int position = adapter.getMenuPosition();
         switch(item.getItemId()) {
             case R.id.action_update:
-
+                data.updateCardData(position,
+                        new Notes("Кадр " + position,
+                                data.getCardData(position).getDescription(),
+                                data.getCardData(position).getPicture()));
+                adapter.notifyItemChanged(position);
                 return true;
             case R.id.action_delete:
-                //Пока что удаляется последний элемент
-                data.deleteCardData(data.size()-1);
-                adapter.notifyDataSetChanged();
+                data.deleteCardData(position);
+                adapter.notifyItemRemoved(position);
                 return true;
         }
         return super.onContextItemSelected(item);
