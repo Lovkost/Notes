@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.notessecondtry.R;
@@ -20,9 +21,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     private final static String TAG = "MyAdapter";
     private CardSource dataSource;
     private OnItemClickListener itemClickListener;
+    private final Fragment fragment;
 
-    public MyAdapter(CardSource strings) {
+
+    public MyAdapter(CardSource strings,Fragment fragment) {
         this.dataSource = strings;
+        this.fragment = fragment;
     }
 
     @NonNull
@@ -59,6 +63,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
+            registerContextMenu(itemView);
             constraintLayout = itemView.findViewById(R.id.constraintLayout);
             title = itemView.findViewById(R.id.noteView);
             description = itemView.findViewById(R.id.dataView);
@@ -68,13 +73,20 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
                 public void onClick(View v) {
                     if (itemClickListener != null) {
                         itemClickListener.onItemClick(v, getAdapterPosition());
+
                     }
                 }
             });
         }
+        private void registerContextMenu(@NonNull View itemView) {
+            if (fragment != null){
+                fragment.registerForContextMenu(itemView);
+            }
+        }
         public void setData(Notes notes){
             title.setText(notes.getTitle());
-            description.setText(notes.getDescription());
+            if (description.toString().length()>=15) description.setText(notes.getDescription().substring(0,15)+"..");
+            else description.setText(notes.getDescription());
             image.setImageResource(notes.getPicture());
         }
 

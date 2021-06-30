@@ -25,7 +25,7 @@
         <item>6thNote</item>
         <item>6thNote</item>
     </string-array>
-    <string-array name="description">
+    <string-array name="description_title">
         <item>Почему отечественный препарат произвели в Японии?</item>
         <item>Какие побочные эффекты вызывает Авифавир?</item>
         <item>Эффективен ли он против коронавируса?</item>
@@ -38,25 +38,13 @@
         <item>Можно ли сравнивать происходящее с гриппом?</item>
         <item>Можно ли сравнивать происходящее с гриппом?</item>
         <item>Можно ли сравнивать происходящее с гриппом?</item>
-        <item>Можно ли сравнивать происходящее с гриппом?</item>
-        <item>Можно ли сравнивать происходящее с гриппом?</item>
-        <item>Можно ли сравнивать происходящее с гриппом?</item>
-        <item>Можно ли сравнивать происходящее с гриппом?</item>
-        <item>Можно ли сравнивать происходящее с гриппом?</item>
-        <item>Можно ли сравнивать происходящее с гриппом?</item>
     </string-array>
-    <string-array name="data">
+    <string-array name="data_title">
         <item>14.02.2002</item>
         <item>16.03.2003</item>
         <item>18.05.2005</item>
         <item>20.07.2007</item>
         <item>24.09.2011</item>
-        <item>30.12.2020</item>
-        <item>30.12.2020</item>
-        <item>30.12.2020</item>
-        <item>30.12.2020</item>
-        <item>30.12.2020</item>
-        <item>30.12.2020</item>
         <item>30.12.2020</item>
         <item>30.12.2020</item>
         <item>30.12.2020</item>
@@ -78,15 +66,9 @@
         <item>@drawable/origami64</item>
         <item>@drawable/pyramids32</item>
         <item>@drawable/pyramids32</item>
-        <item>@drawable/pyramids32</item>
-        <item>@drawable/pyramids32</item>
-        <item>@drawable/pyramids32</item>
-        <item>@drawable/pyramids32</item>
-        <item>@drawable/pyramids32</item>
-        <item>@drawable/pyramids32</item>
     </array>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="add">Добавить</string>
     <string name="clear">Очистить</string>
+    <string name="update">Изменить</string>
+    <string name="delete">Удалить</string>
 </resources>

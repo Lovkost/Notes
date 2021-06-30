@@ -40,8 +40,8 @@ public class ShowNoteInside extends Fragment {
         TextView descF = view.findViewById(R.id.description);
         TextView dataF = view.findViewById(R.id.date);
         String[] noteArr = getResources().getStringArray(R.array.noteTitles);
-        String[] descArr = getResources().getStringArray(R.array.description);
-        String[] dataArr = getResources().getStringArray(R.array.data);
+        String[] descArr = getResources().getStringArray(R.array.description_title);
+        String[] dataArr = getResources().getStringArray(R.array.data_title);
         noteF.setText(noteArr[index]);
         descF.setText(descArr[index]);
         dataF.setText(dataArr[index]);

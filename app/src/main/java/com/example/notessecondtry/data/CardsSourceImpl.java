@@ -21,7 +21,7 @@ public class CardsSourceImpl implements CardSource {
         // строки заголовков из ресурсов
         String[] titles = resources.getStringArray(R.array.noteTitles);
         // строки описаний из ресурсов
-        String[] descriptions = resources.getStringArray(R.array.data);
+        String[] descriptions = resources.getStringArray(R.array.description_title);
         // изображения
         int[] pictures = getImageArray();
         // заполнение источника данных
