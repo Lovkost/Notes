@@ -14,6 +14,7 @@ import android.widget.DatePicker;
 import com.example.notessecondtry.MainActivity;
 import com.example.notessecondtry.R;
 import com.example.notessecondtry.data.Notes;
+import com.example.notessecondtry.data.PictureIndexConverter;
 import com.example.notessecondtry.observe.Publisher;
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -97,13 +98,15 @@ public class CardFragment extends Fragment {
         String title = this.title.getText().toString();
         String description = this.description.getText().toString();
         Date date = getDateFromDatePicker();
-        int picture;
         if (cardData != null){
-            picture = cardData.getPicture();
+            Notes answer;
+            answer = new Notes(title, description, cardData.getPicture(), date);
+            answer.setId(cardData.getId());
+            return answer;
         } else {
-            picture = R.drawable.bull64;
+            int picture = PictureIndexConverter.getPictureByIndex(PictureIndexConverter.randomPictureIndex());
+            return new Notes(title, description, picture,  date);
         }
-        return new Notes(title, description, picture, date);
     }
 
     private Date getDateFromDatePicker() {

@@ -6,8 +6,9 @@ import android.os.Parcelable;
 import java.util.Date;
 
 public class Notes implements Parcelable {
-    private String title;       // заголовок
-    private String description; // описание
+    private String id;
+    private String title;
+    private String description;
     private int picture;
     private static Date date;
     public Notes(String title, String description, int picture, Date date){
@@ -59,5 +60,12 @@ public class Notes implements Parcelable {
     }
     public static Date getDate(){
         return date;
+    }
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }

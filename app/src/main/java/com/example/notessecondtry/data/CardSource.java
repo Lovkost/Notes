@@ -1,6 +1,7 @@
 package com.example.notessecondtry.data;
 
 public interface CardSource {
+    CardSource init(CardsSourceResponse cardsSourceResponse);
     Notes getCardData(int position);
     int size();
     void deleteCardData(int position);

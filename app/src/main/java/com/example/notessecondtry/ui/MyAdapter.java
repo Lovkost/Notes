@@ -29,9 +29,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         return menuPosition;
     }
 
-    public MyAdapter(CardSource strings, Fragment fragment) {
-        this.dataSource = strings;
+    public MyAdapter( Fragment fragment) {
         this.fragment = fragment;
+    }
+    public void setDataSource(CardSource dataSource){
+        this.dataSource = dataSource;
+        notifyDataSetChanged();
     }
 
     @NonNull
@@ -105,7 +108,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         public void setData(Notes notes) {
             Integer count = notes.getDescription().length();
             title.setText(notes.getTitle());
-            if (count > 11) description.setText(notes.getDescription().substring(0, 11));
+            if (count > 11) description.setText(notes.getDescription().substring(0, 11) + "...");
             else description.setText(notes.getDescription());
             image.setImageResource(notes.getPicture());
             date.setText(new SimpleDateFormat("dd-MM-yy").format(Notes.getDate()));
