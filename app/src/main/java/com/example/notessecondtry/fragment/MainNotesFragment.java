@@ -1,13 +1,16 @@
 package com.example.notessecondtry.fragment;
 
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -180,9 +183,32 @@ public class MainNotesFragment extends Fragment {
                 });
                 return true;
             case R.id.action_delete:
-                int deletePosition = adapter.getMenuPosition();
-                data.deleteCardData(deletePosition);
-                adapter.notifyItemRemoved(deletePosition);
+                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                builder.setMessage(R.string.press_button)
+                        // Из этого окна нельзя выйти кнопкой Back
+                        .setCancelable(false)
+                        // Устанавливаем кнопку. Название кнопки также можно
+                        // задавать строкой
+                        .setPositiveButton(R.string.buttonYes,
+                                // Ставим слушатель, нажатие будем обрабатывать
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int id) {
+                                        int deletePosition = adapter.getMenuPosition();
+                                        data.deleteCardData(deletePosition);
+                                        adapter.notifyItemRemoved(deletePosition);
+                                    }
+                                })
+                        .setNegativeButton(R.string.buttonNo,
+                                new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        AlertDialog  alert = builder.create();
+                                        alert.cancel();
+                                    }
+                                });
+                AlertDialog alert = builder.create();
+                alert.show();
+
                 return true;
             case R.id.action_clear:
                 data.clearCardData();
