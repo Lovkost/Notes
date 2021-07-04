@@ -28,4 +28,6 @@
         android:paddingTop="60dp"
         tools:listitem="@layout/item" />
 
+    <include layout="@layout/activity_note" />
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

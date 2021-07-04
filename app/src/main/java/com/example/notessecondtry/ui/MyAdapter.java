@@ -4,7 +4,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -16,6 +15,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.notessecondtry.R;
 import com.example.notessecondtry.data.Notes;
 import com.example.notessecondtry.data.CardSource;
+
+import java.text.SimpleDateFormat;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     private final static String TAG = "MyAdapter";
@@ -66,14 +67,17 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         private TextView title;
         private TextView description;
         private AppCompatImageView image;
+        private TextView date;
+
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             registerContextMenu(itemView);
             constraintLayout = itemView.findViewById(R.id.constraintLayout);
             title = itemView.findViewById(R.id.noteView);
-            description = itemView.findViewById(R.id.dataView);
+            description = itemView.findViewById(R.id.descView);
             image = itemView.findViewById(R.id.imageView);
+            date = itemView.findViewById(R.id.dateView);
             constraintLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -104,6 +108,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             if (count > 11) description.setText(notes.getDescription().substring(0, 11));
             else description.setText(notes.getDescription());
             image.setImageResource(notes.getPicture());
+            date.setText(new SimpleDateFormat("dd-MM-yy").format(Notes.getDate()));
         }
 
     }
