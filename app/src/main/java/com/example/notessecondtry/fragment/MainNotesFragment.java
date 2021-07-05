@@ -41,7 +41,12 @@ import com.example.notessecondtry.observe.Publisher;
 import com.example.notessecondtry.ui.MyAdapter;
 
 public class MainNotesFragment extends Fragment {
-    private CardSource data;
+    private static CardSource data;
+
+    public static CardSource getData() {
+        return data;
+    }
+
     private MyAdapter adapter;
     private RecyclerView recyclerView;
     private Navigation navigation;

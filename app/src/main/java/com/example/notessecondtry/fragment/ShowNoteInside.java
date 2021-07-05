@@ -10,11 +10,21 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.notessecondtry.R;
+import com.example.notessecondtry.data.CardSource;
+import com.example.notessecondtry.data.CardsSourceFirebaseImpl;
+import com.example.notessecondtry.data.CardsSourceResponse;
+import com.example.notessecondtry.data.Notes;
+import com.example.notessecondtry.ui.MyAdapter;
+
+import java.text.SimpleDateFormat;
 
 public class ShowNoteInside extends Fragment {
 
     public static final String ARG_INDEX = "index";
     private int index;
+    private MyAdapter adapter;
+    private CardSource data;
+    private CardsSourceFirebaseImpl base;
 
     public static ShowNoteInside newInstance(int index) {
         ShowNoteInside f = new ShowNoteInside();
@@ -23,6 +33,7 @@ public class ShowNoteInside extends Fragment {
         f.setArguments(args);
         return f;
     }
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -39,12 +50,10 @@ public class ShowNoteInside extends Fragment {
         TextView noteF = view.findViewById(R.id.notes);
         TextView descF = view.findViewById(R.id.description);
         TextView dataF = view.findViewById(R.id.date);
-        String[] noteArr = getResources().getStringArray(R.array.noteTitles);
-        String[] descArr = getResources().getStringArray(R.array.description_title);
-        String[] dataArr = getResources().getStringArray(R.array.data_title);
-        noteF.setText(noteArr[index]);
-        descF.setText(descArr[index]);
-        dataF.setText(dataArr[index]);
+        Notes note = MainNotesFragment.getData().getCardData(index);
+        noteF.setText(note.getTitle());
+        descF.setText(note.getDescription());
+        dataF.setText(new SimpleDateFormat("dd-MM-yy").format(note.getDate()));
         return view;
     }
 }

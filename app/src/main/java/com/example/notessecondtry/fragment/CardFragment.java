@@ -31,7 +31,6 @@ public class CardFragment extends Fragment {
     private TextInputEditText title;
     private TextInputEditText description;
     private DatePicker datePicker;
-
     // Для редактирования данных
     public static CardFragment newInstance(Notes cardData) {
         CardFragment fragment = new CardFragment();
@@ -105,7 +104,7 @@ public class CardFragment extends Fragment {
             return answer;
         } else {
             int picture = PictureIndexConverter.getPictureByIndex(PictureIndexConverter.randomPictureIndex());
-            return new Notes(title, description, picture,  date);
+            return new Notes(title, description, picture, date);
         }
     }
 

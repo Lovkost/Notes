@@ -12,11 +12,12 @@ public class CardDataMapping {
         public final static String DATE = "date";
         public final static String TITLE = "title";
         public final static String DESCRIPTION = "description";
+        public final static String LIKE = "like";
     }
 
     public static Notes toCardData(String id, Map<String, Object> doc) {
         long indexPic = (long) doc.get(Fields.PICTURE);
-        com.google.firebase.Timestamp timeStamp = (Timestamp) doc.get(Fields.DATE);
+        Timestamp timeStamp = (Timestamp)doc.get(Fields.DATE);
         Notes answer = new Notes((String) doc.get(Fields.TITLE),
                 (String) doc.get(Fields.DESCRIPTION),
                 PictureIndexConverter.getPictureByIndex((int) indexPic),

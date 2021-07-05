@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.notessecondtry.R;
 import com.example.notessecondtry.data.Notes;
 import com.example.notessecondtry.data.CardSource;
+import com.example.notessecondtry.fragment.ShowNoteInside;
 
 import java.text.SimpleDateFormat;
 
@@ -24,6 +25,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     private OnItemClickListener itemClickListener;
     private final Fragment fragment;
     private int menuPosition;
+
 
     public int getMenuPosition() {
         return menuPosition;
@@ -81,6 +83,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             description = itemView.findViewById(R.id.descView);
             image = itemView.findViewById(R.id.imageView);
             date = itemView.findViewById(R.id.dateView);
+
             constraintLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -111,8 +114,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             if (count > 11) description.setText(notes.getDescription().substring(0, 11) + "...");
             else description.setText(notes.getDescription());
             image.setImageResource(notes.getPicture());
-            date.setText(new SimpleDateFormat("dd-MM-yy").format(Notes.getDate()));
+            date.setText(new SimpleDateFormat("dd-MM-yy").format(notes.getDate()));
         }
-
     }
 }

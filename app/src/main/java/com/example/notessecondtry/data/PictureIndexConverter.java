@@ -11,10 +11,10 @@ public class PictureIndexConverter {
 
     private static int[] picIndex = {R.drawable.chili,
             R.drawable.bull64,
-            R.drawable.pyramids32,
-            R.drawable.german,
             R.drawable.anubis32,
             R.drawable.origami64,
+            R.drawable.pyramids32,
+            R.drawable.german,
     };
 
     public static int randomPictureIndex(){

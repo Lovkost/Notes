@@ -10,7 +10,7 @@ public class Notes implements Parcelable {
     private String title;
     private String description;
     private int picture;
-    private static Date date;
+    private  Date date;
     public Notes(String title, String description, int picture, Date date){
         this.title = title;
         this.description=description;
@@ -47,18 +47,18 @@ public class Notes implements Parcelable {
         }
     };
 
-    public String getTitle() {
+    public  String getTitle() {
         return title;
     }
 
-    public String getDescription() {
+    public  String getDescription() {
         return description;
     }
 
     public int getPicture() {
         return picture;
     }
-    public static Date getDate(){
+    public  Date getDate(){
         return date;
     }
     public String getId() {
